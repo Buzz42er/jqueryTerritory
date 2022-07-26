@@ -1,0 +1,22 @@
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.atributeAndContent {
+    
+}
+
+.atributeAndContent section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div { 
+    margin: 10px;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.123);
+}
