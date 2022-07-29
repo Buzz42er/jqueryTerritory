@@ -30,4 +30,39 @@ $(function() {
 $(function() {
     var name = $(".add input").val();
     $(".add p").append(name);
+}) // after, before, preppend
+
+//----------------------------------------------------------------Next chapter, Manipulating CSS
+
+// adding and removing classes
+$(function() {
+    $(".addCSS").addClass("redCSSadd");
+    $(".removeCSS").removeClass("redCSSadd")
 })
+
+//toggle class
+$(function() {
+    $("#toggleClassButton").click(function() {
+        $(".toggleClass").toggleClass("redCSSadd")
+    })
+})
+
+//experiment
+$(function() {
+    $(".experiment").click(function() {
+        $(".experiment").toggleClass("redCSSadd")
+    })
+})
+
+//CSS properties - doesn't change bg color on click...
+//$(function() {
+//    $(".addingProperties").click(function() {
+//        $(".addingProperties").css("background-color, blue")
+//    })
+//})
+
+$(function() {  //this one should work, 
+    $(".addingProperties").css("background-color", "blue");
+    $(".addingProperties").css("color", "white");
+
+});
