@@ -19,6 +19,7 @@ div {
     width: 200px;
     padding: 10px;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.123);
+
 }
 
 .redCSSadd {
@@ -31,4 +32,27 @@ div {
 
 .addingProperties {
     background-color: yellow;
+}
+
+.removeElem { 
+    color: white;
+}
+
+.redP {
+    background-color: red;
+
+}
+
+.greenP {
+    background-color: green;
+}
+
+.blueP {
+    background-color: blue;
+}
+
+.onMethod, .offMethod {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
