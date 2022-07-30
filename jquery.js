@@ -50,7 +50,7 @@ $(function() {
 //experiment
 $(function() {
     $(".experiment").click(function() {
-        $(".experiment").toggleClass("redCSSadd")
+        $(".experiment").toggleClass("redCSSadd")     //This is what I will use most
     })
 })
 
@@ -61,8 +61,21 @@ $(function() {
 //    })
 //})
 
-$(function() {  //this one should work, 
-    $(".addingProperties").css("background-color", "blue");
-    $(".addingProperties").css("color", "white");
+$(function() {  //this one should work 
+    $(".addingProperties").css("background-color", "blue")
+    $(".addingProperties").css("color", "white")
 
 });
+
+//multiple css properties
+$(function() {
+    $(".multipleProps").css({"color" : "red", "font-size" : "20px"}) //this is JSON syntax
+
+})
+
+//dimensions
+$(function() {
+    $(".dimensions").css({"background-color" : "red"})
+    $(".dimensions").width(200)
+    $(".dimensions").height(200)
+})
