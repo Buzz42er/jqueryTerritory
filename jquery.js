@@ -157,3 +157,16 @@ $(function() {
     $(".offMethod").off("click")
 
 })
+
+/*
+type the type of the event (e.g. "click").
+which the button or key that was pressed.
+data any data that was passed in when the event was bound.
+target the DOM element that initiated the event.
+preventDefault() prevent the default action of the event (e.g., following a link).
+stopPropagation() Stop the event from bubbling up to other elements.
+*/
+
+//The Event Object
+
+
