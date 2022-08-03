@@ -1,33 +1,33 @@
 //change attr
-$(function() {
+$(function () {
     $(".replace a").attr("href", "https://www.sololearn.com")
 })
 
 //remove attr
-$(function() {
+$(function () {
     $(".remove a").removeAttr("href")
 })
 
 //get content - html, plane text
-$(function(){
+$(function () {
     var p = $(".getContent p").html();
     var span = $(".getContent span").text();
     console.log(p, span)
 })
 
 //change content
-$(function() {
+$(function () {
     $(".changeContent p").text("Ahoj! This text was changed with jQuery");
 })
 
 //outputing value
-$(function() {
+$(function () {
     var val = $(".val input").val();
     $(".val p").text(val);
 })
 
 //adding content
-$(function() {
+$(function () {
     var name = $(".add input").val();
     $(".add p").append(name);
 }) // after, before, preppend
@@ -35,21 +35,21 @@ $(function() {
 //----------------------------------------------------------------Next chapter, Manipulating CSS
 
 // adding and removing classes
-$(function() {
+$(function () {
     $(".addCSS").addClass("redCSSadd");
     $(".removeCSS").removeClass("redCSSadd")
 })
 
 //toggle class
-$(function() {
-    $("#toggleClassButton").click(function() {
+$(function () {
+    $("#toggleClassButton").click(function () {
         $(".toggleClass").toggleClass("redCSSadd")
     })
 })
 
 //experiment
-$(function() {
-    $(".experiment").click(function() {
+$(function () {
+    $(".experiment").click(function () {
         $(".experiment").toggleClass("redCSSadd")     //This is what I will use most
     })
 })
@@ -61,21 +61,21 @@ $(function() {
 //    })
 //})
 
-$(function() {  //this one should work 
+$(function () {  //this one should work 
     $(".addingProperties").css("background-color", "blue")
     $(".addingProperties").css("color", "white")
 
 });
 
 //multiple css properties
-$(function() {
-    $(".multipleProps").css({"color" : "red", "font-size" : "20px"}) //this is JSON syntax
+$(function () {
+    $(".multipleProps").css({ "color": "red", "font-size": "20px" }) //this is JSON syntax
 
 })
 
 //dimensions
-$(function() {
-    $(".dimensions").css({"background-color" : "red"})
+$(function () {
+    $(".dimensions").css({ "background-color": "red" })
     $(".dimensions").width(200)
     $(".dimensions").height(200)
     $(".dimensions").outerheight(10) //margin
@@ -85,27 +85,27 @@ $(function() {
 //----------------------------------------------Manipulating DOM (document object model)
 
 //Traversing
-$(function() {
+$(function () {
     var e = $(".traversing p").parent() //parents - for every parent of that child trough the tree
     e.css("border", "2px solid red")
-        //eq() - for getting specific element if there is multiple same ones
+    //eq() - for getting specific element if there is multiple same ones
 })
 
 //Removing Elements
-$(function() {
+$(function () {
     $(".removeElem p").eq(1).remove()
 })
 
 //Empty Element
-$(function() {
+$(function () {
     $(".emptyElem").empty()
 })
 
 //----------------------------------------------------------------Events
 
 //Handling events
-$(function() {
-    $(".eventHandle").click(function() { //this is a event handler, it is a function
+$(function () {
+    $(".eventHandle").click(function () { //this is a event handler, it is a function
         $(".eventHandle").html(Date())
     })
 })
@@ -136,22 +136,22 @@ scroll occurs when the user scrolls in the specified element.
 */
 
 //Common events
-$(function() {
-    $("#eventText").keydown(function() {
+$(function () {
+    $("#eventText").keydown(function () {
         $(".commonEvents p").html($("#eventText").val())
     })
 })
 
 //on() method
-$(function() {
-    $(".onMethod").on("click", function() {
+$(function () {
+    $(".onMethod").on("click", function () {
         $(".onMethod").text("Clicked!")
     })
 })
 
-//off method
-$(function() {
-    $(".offMethod").on("click", function() {
+//off method - removes event handler
+$(function () {
+    $(".offMethod").on("click", function () {
         $(".offMethod").text("This was clicked, if you click it again it will turn back")
     })
     $(".offMethod").off("click")
@@ -159,6 +159,8 @@ $(function() {
 })
 
 /*
+Every event handling function can receive an event object, which contains properties and methods related to the event:
+pageX, pageY the mouse position (X & Y coordinates) at the time the event occurred, relative to the top left of the page.
 type the type of the event (e.g. "click").
 which the button or key that was pressed.
 data any data that was passed in when the event was bound.
@@ -167,6 +169,74 @@ preventDefault() prevent the default action of the event (e.g., following a link
 stopPropagation() Stop the event from bubbling up to other elements.
 */
 
-//The Event Object
+//The Event Object, prevent
+$(function () {
+    $(".eventObject a").click(function (event) {
+        alert("this click will not work, because we prevented default and, your mouse is on this coordinates on the page: " + event.pageX + " and " + event.pageY)
+        event.preventDefault()
+    })
+})
+
+//which - what key was pressed
+$(function () {
+    $("#alertPressedKey").keydown(function (event) {
+        alert(event.which)
+    })
+})
+
+//trigger()
+$(function () {
+    $(".trigger").click(function () {
+        $(".trigger").toggleClass("redCSSadd")
+    })
+    $(".trigger").trigger("click")
+})
+
+//to do list
+$(function () {
+    $("#add").on("click", function () {
+        var val = $(".toDoList input").val();
+        if (val !== '') {
+            var elem = $("<li></li>").text(val);
+            $(elem).append("<button class='deleteTask'>X</button>");
+            $("#mylist").append(elem);
+            $("input").val(""); //clear the input
+
+            $(".deleteTask").on("click", function() {
+                $(this).parent().remove() //this presents current object, of what function is working
+            })
+        }
+    })
+    
+})
+
+//-----------------------------------------------Effects
+
+//toggle, show, hide
+$(function() {
+    $(".effectToggle p").click(function() {
+        $(".effectToggle div").toggle(1000)
+    })
+})
+
+/**
+ * Just like toggle(), fadeToggle() takes two optional parameters: speed and callback.
+ * Another method used for fading is fadeTo(), which allows fading to a given opacity (value between 0 and 1). For example: $("div").fadeTo(1500, 0.7);
+ */
+
+//fade
+$(function() {
+    $(".effectFade p").click(function() {
+        $(".effectFade div").fadeToggle(1000)
+    })
+})
+
+//slide
+$(function() {
+    $(".effectSlide p").click(function() {
+        $(".effectSlide div").slideToggle(1000)
+    })
+})
+
 
 
