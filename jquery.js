@@ -75,11 +75,13 @@ $(function () {
 
 //dimensions
 $(function () {
-    $(".dimensions").css({ "background-color": "red" })
+    $(".dimensions").css({ 
+        "background-color": "red",
+        'color': 'white' })
     $(".dimensions").width(200)
     $(".dimensions").height(200)
-    $(".dimensions").outerheight(10) //margin
-    $(".dimensions").inerwidth(10) //padding
+    $(".dimensions").outerHeight(10) //margin
+    $(".dimensions").innerWidth(10) //padding
 })
 
 //----------------------------------------------Manipulating DOM (document object model)
@@ -238,5 +240,72 @@ $(function() {
     })
 })
 
+// You can animate any CSS property using the above mentioned syntax, but there is one important thing to remember: all property names must be camel-cased when used with the animate() method (camelCase is the practice of writing compound words or phrases such that each word or abbreviation begins with a capital letter with the first word in lowercase).
+// You will need to write ***paddingLeft*** instead of padding-left, marginRight instead of margin-right, and so on.
+
+//animate()
+$(function() {
+    $(".animate div").click(function() {
+        $(".animate div").animate({
+            width: '300px' 
+     }, 1000);  // ("key":"value" pairs)
+    });
+})
+
+$(function() {
+    $(".animateMulti div").click(function() { 
+        $(".animateMulti div").animate({
+            width: '300px', //neradi
+            height: '250px',
+            backgroundColor: 'red' //ne radi
+        }, 1000)
+    })
+})
 
 
+$(function() {
+    $(".animateOfOriginal div").click(function() {
+        $(".animateOfOriginal div").animate({
+            height: '-=50px'
+        }, 1000)
+    })
+})
+
+
+//To stop an animation before it is finished, jQuery provides the stop() method
+
+$(function() {
+    $('.animateObject').click(function() {
+        var div = $(".animateObject div");
+        div.animate({opacity: 1});
+        div.animate({height: '+=10px', width: '+=10px', top: '+=30px'}, 500);
+        div.animate({height: '-=10px', width: '-=10px', left: '+=30px'}, 500);
+        div.animate({height: '+=10px', width: '+=10px', top: '-=30px'}, 500);
+        div.animate({height: '-=10px', width: '-=10px', left: '-=30px'}, 500);
+        div.animate({opacity: 0.5});
+    })
+    
+}); 
+
+// Each animate() method call will run one after another.
+// Remember, to manipulate the position of elements, you need to set the CSS position property of the element to relative, fixed, or absolute.
+
+// The animate() method, just like the hide/show/fade/slide methods, can take an optional callback function as its parameter, which is executed after the current effect is finished.
+
+
+// By default, jQuery comes with queue functionality for animations.
+// This means that if you write multiple animate() calls one after another, jQuery creates an "internal" queue for these method calls. Then it runs the animate calls one-by-one.
+
+// Drop Down menu
+$(function() {
+    var button = $('.ddButton')
+    var divUl = $('.dropDownMenu ul')
+    
+    
+
+    button.click(function() {
+        divUl.slideToggle(1000)
+    })
+})
+
+//I belive that's all folks!

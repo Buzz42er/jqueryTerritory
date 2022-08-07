@@ -34,10 +34,16 @@ main {
 
 div { 
     margin: 10px;
-    width: 200px;
+    min-width: 200px;
+    min-height: 100px;
     padding: 10px;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.123);
 
+}
+
+p, a, span, div div {
+    max-width: 200px;
+    
 }
 
 .redCSSadd {
@@ -82,4 +88,45 @@ div {
 .effectFade p, .effectSlide p, .effectToggle p {
     cursor: pointer;
     box-shadow: 0 0 5px gray;
+}
+
+.animate, .animateMulti, .animateOfOriginal {
+    min-width: initial;
+    min-height: initial;
+}
+
+.animate div, .animateMulti div, .animateOfOriginal div {
+    cursor: pointer;
+    min-width: initial;
+    min-height: initial;
+}
+
+.animateObject div {
+    background:orange;
+    height:10px;
+    width:10px;
+    position:absolute;
+    border-radius: 20px;
+    opacity: 0.5;
+    max-width: initial;    
+
+    cursor: pointer;
+    min-width: initial;
+    min-height: initial;
+}
+
+.ddButton {
+    min-width: initial;
+    min-height: initial;
+    max-width: initial;
+    max-height: initial;
+}
+
+.ddButton {
+    cursor: pointer;
+}
+
+.dropDownMenu ul {
+    display: none;
+    
 }
